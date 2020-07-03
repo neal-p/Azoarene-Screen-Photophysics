@@ -10,13 +10,13 @@ The algorithm first computes the trans–cis difference spectrum. Maxima on the 
 
 INPUT:
 
-  cis and trans TDDFT log files
+      cis and trans TDDFT log files
   
 USAGE:
 
-   python3 screen-photophysics.py <cis.log> <trans.log>
+       python3 screen-photophysics.py <cis.log> <trans.log>
    
-   *note this is intended for use on unix machines
+       *note this is intended for use on unix machines
    
 OUTPUT:
 
