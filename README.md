@@ -15,14 +15,21 @@ USAGE:
    
 OUTPUT:
     1. png of spectra with difference plot and 'HIT' peaks highlighted
+    
     2. file containing list of excitations for cis and trans
+    
     3. file containing list of unique absorbance peaks for cis and trans
+    
     
     
 Variables to modify for other use cases:
     'nstates'  - By default is set to 10, if more states were calculated by TDDFT, increase this number to include them
+    
     'start'    - energy in nm to start screening
+    
      'end'     - energy in nm to end screening
+     
      'sigma'   - controls the braodening parameter for the gaussian fit. 0.4 is gview default, 0.2 is azoarene default used in this program
+     
      'name'    - is used to define how plot title, png name, and HITs list are named. By default it is named after the cis log file name. This can be changed to suit whatever naming scheme is desired.
   
