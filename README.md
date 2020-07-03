@@ -29,6 +29,8 @@ OUTPUT:
     
     
 Variables to modify for other use cases:
+
+
     'nstates'  - By default is set to 10, if more states were calculated by TDDFT, increase this number to include them
     
     'start'    - energy in nm to start screening
