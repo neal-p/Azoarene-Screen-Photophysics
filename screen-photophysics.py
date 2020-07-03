@@ -11,6 +11,10 @@ cislog=sys.argv[1]
 translog=sys.argv[2]
 cis=cislog.split('.log')[0]
 trans=translog.split('.log')[0]
+
+#how to name output files/plot
+name=cis
+
 #get the energies
 os.system("""cat {0} |grep Excited|grep -v singles|sed 's/=/\t/g'|gawk '{{print $7,$10}}' > {1}.impulses""".format(cislog,cis))
 os.system("""cat {0} |grep Excited|grep -v singles|sed 's/=/\t/g'|gawk '{{print $7,$10}}' > {1}.impulses""".format(translog,trans))
@@ -22,7 +26,7 @@ names = ['{0}.impulses'.format(trans), '{0}.impulses'.format(cis)]
 #constants, broadening parameter, and number of states to expect
 nmol = 1
 nstates=10
-sigma=0.4
+sigma=0.2
 sigmain=sigma
 h=6.62607015e-34
 cmeters=299792458
@@ -31,7 +35,7 @@ eV2J=1.602176634e-19
 sigmacm=((sigma*eV2J)/(h*c))
 
 #setting up spectra
-start=300
+start=380
 stop=800
 wavelengths=np.arange(start,stop,0.5)
 extra=len(names)+1
@@ -106,7 +110,7 @@ for x,n in enumerate(names):
     ev=1240/wavelengths
 
     colors=[1,7]
-    ax1.scatter(wavelengths,linearcomb[:,x],s=10,alpha='0.8', c=tableau100[colors[x]], label = n )
+    ax1.scatter(wavelengths,linearcomb[:,x],s=10,alpha='0.8', c=tableau100[colors[x]] )
 
 difference=linearcomb[:,0] + linearcomb[:,1]
 
@@ -122,12 +126,12 @@ y_spl = UnivariateSpline(x,y,s=0,k=4)
 y_spl_d =  y_spl.derivative(n=1)
 droots=y_spl_d.roots()
 droots=np.round(droots)
-ax1.scatter(wavelengths,y_spl_d(wavelengths),s=1,label = 'dy/dx')
+ax1.scatter(wavelengths,y_spl_d(wavelengths),s=1,c=tableau100[22],label = 'dy/dx')
 
 y_spl_d2 =  y_spl.derivative(n=2)
 d2rootval=y_spl_d2(droots)
 
-ax1.scatter(wavelengths,y_spl_d2(wavelengths),s=1,label = 'd2y/dx2')
+ax1.scatter(wavelengths,y_spl_d2(wavelengths),s=1,label = 'd2y/dx2',c=tableau100[40])
 
 #Determine whether passes or fails
 transbool=False
@@ -157,7 +161,7 @@ for x,i in enumerate(d2rootval):
 transpeakvalue=transpeakvalue[transpeakvalue != 0]
 cispeakvalue=cispeakvalue[cispeakvalue != 0]
 
-with open('{0}.txt'.format(cis),'a') as screen:
+with open('{0}.txt'.format(name),'w') as screen:
     screen.write("""trans: {0} at {2}
 cis: {1} at {3}""".format(trans,cis, transpeakvalue,cispeakvalue))
 
@@ -175,7 +179,8 @@ plt.legend()
 
 ax1.set_xlabel('Wavelength (nm)',fontsize=15)
 ax1.set_ylabel('Normalized Intensity',fontsize=15)
-plt.title('{0}'.format(cis))
-plt.savefig('{0}.png'.format(cis))
+plt.title('{0}'.format(name))
+plt.tight_layout()
+plt.savefig('{0}.png'.format(name))
 plt.show()
 
