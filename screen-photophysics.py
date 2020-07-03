@@ -6,7 +6,7 @@ import pandas
 import numpy as np
 from scipy.interpolate import UnivariateSpline
 
-#defire cis and trans
+#define cis and trans
 cislog=sys.argv[1]
 translog=sys.argv[2]
 cis=cislog.split('.log')[0]
