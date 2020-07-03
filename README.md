@@ -14,6 +14,7 @@ USAGE:
    python3 screen-photophysics.py <cis.log> <trans.log>
    
 OUTPUT:
+
     1. png of spectra with difference plot and 'HIT' peaks highlighted
     
     2. file containing list of excitations for cis and trans
