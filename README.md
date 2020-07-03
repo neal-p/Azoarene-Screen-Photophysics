@@ -5,12 +5,14 @@ We consider a molecule to have ‘passed screening’ if there is a distinct cis
 
 The algorithm first computes the trans–cis difference spectrum. Maxima on the difference spectrum represent places where there is high trans absorbance and low cis absorbance; whereas minima represent places where there is high cis absorbance and low trans absorbance. If the absorbance value for a difference spectrum peak is at least 70% of the corresponding raw cis/trans spectrum, it is a hit. This last step prevents small cis/trans absorbance differences from registering false positives. Any minima or maxima on the difference spectrum that meet this criteria are designated as a hit, and a hit for both cis and trans passes screening. 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Screening](example-screen.png)
 
 INPUT:
   cis and trans TDDFT log files
+  
 USAGE:
    python3 screen-photophysics.py <cis.log> <trans.log>
+   
 OUTPUT:
     1. png of spectra with difference plot and 'HIT' peaks highlighted
     2. file containing list of excitations for cis and trans
