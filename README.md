@@ -10,7 +10,7 @@ The algorithm first computes the trans–cis difference spectrum. Maxima on the 
 
 INPUT:
 
-      cis and trans TDDFT log files
+      cis and trans TDDFT Gaussian log files
   
 USAGE:
 
