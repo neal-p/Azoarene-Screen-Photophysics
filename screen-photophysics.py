@@ -145,13 +145,13 @@ transcount=0
 for x,i in enumerate(d2rootval):
     index=np.where(wavelengths == droots[x])
     if i > 0:
-        if (difference[index]/linearcomb[index,1]) > 0.6:
+        if (difference[index]/linearcomb[index,1]) > 0.7:
             cisbool=True
             cispeakvalue[ciscount] = wavelengths[index]
             ciscount+=1
                 
     elif i < 0: 
-        if difference[index]/linearcomb[index,0] > 0.6:
+        if difference[index]/linearcomb[index,0] > 0.7:
             transbool=True
             transpeakvalue[transcount]= wavelengths[index]
             transcount+=1
