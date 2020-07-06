@@ -24,7 +24,7 @@ OUTPUT:
     
     2. file containing list of excitations for cis and trans
     
-    3. file containing list of unique absorbance peaks for cis and trans
+    3. file containing list of unique absorbance 'HIT's for cis and trans
     
     
     
