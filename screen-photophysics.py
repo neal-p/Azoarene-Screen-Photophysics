@@ -35,7 +35,7 @@ eV2J=1.602176634e-19
 sigmacm=((sigma*eV2J)/(h*c))
 
 #setting up spectra
-start=380
+start=300
 stop=800
 wavelengths=np.arange(start,stop,0.5)
 extra=len(names)+1
@@ -97,11 +97,11 @@ for x,n in enumerate(names):
         gauss[:,i]=1.3062974e8 * (data1[:,1]/sigmacm) * np.exp(-(((1/wavelengths[i]-1/data1[:,0])/(sigmacm*10e-8))**2))
 
     linearcomb[:,x] = np.sum(gauss,0)
-
  
 #linearcomb=linearcomb/100
 max=np.amax(linearcomb)
-negmax=max*(-1)
+linearcomb=linearcomb/max
+#negmax=max*(-1)
 linearcomb[:,1]=linearcomb[:,1]*(-1)  
 
 #PLOTTING
