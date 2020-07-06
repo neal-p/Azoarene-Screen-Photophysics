@@ -16,7 +16,7 @@ USAGE:
 
        python3 screen-photophysics.py <cis.log> <trans.log>
    
-       *note this is intended for use on unix machines
+       *note this is intended for use in unix
    
 OUTPUT:
 
