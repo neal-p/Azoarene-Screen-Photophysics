@@ -37,7 +37,7 @@ Variables to modify for other use cases:
     
      'end'     - energy in nm to end screening
      
-     'sigma'   - controls the braodening parameter for the gaussian fit. 0.4 is gview default, 0.2 is azoarene default used in this program
+     'sigma'   - controls the braodening parameter for the gaussian fit. 0.4 is gview default, 0.25 is azoarene default used in this program
      
      'name'    - is used to define how plot title, png name, and HITs list are named. By default it is named after the cis log file name. This can be changed to suit whatever naming scheme is desired.
   
