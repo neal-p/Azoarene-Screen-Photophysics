@@ -1,7 +1,7 @@
 # Azoarene-Screen-Photophysics
 Screen azoarene spectra for ideal photoswitching qualities
 
-We consider a molecule to have ‘passed screening’ if there is a distinct cis and trans absorbance peaks the visible range (300–800 nm by default). 
+We consider a molecule to have ‘passed screening’ if there is a distinct cis and trans absorbance peaks near the visible range (300–800 nm by default). 
 
 ![Image of Screening](example-screenings.png)
 
