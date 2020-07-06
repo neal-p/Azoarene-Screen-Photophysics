@@ -26,7 +26,7 @@ names = ['{0}.impulses'.format(trans), '{0}.impulses'.format(cis)]
 #constants, broadening parameter, and number of states to expect
 nmol = 1
 nstates=10
-sigma=0.2
+sigma=0.25
 sigmain=sigma
 h=6.62607015e-34
 cmeters=299792458
