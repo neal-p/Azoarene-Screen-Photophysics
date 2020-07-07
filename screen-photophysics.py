@@ -61,7 +61,7 @@ tableau100 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),
              (44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),
              (148, 103, 189), (197, 176, 213), (140, 86, 75), (196, 156, 148),
              (227, 119, 194), (247, 182, 210), (127, 127, 127), (199, 199, 199),
-             (188, 189, 34), (219, 219, 141), (23, 190, 207), (158, 218, 229),(31, 119, 180),(31, 119, 180)]
+             (188, 189, 34), (219, 219, 141), (23, 190, 207), (158, 218, 229),(31, 119, 180),(31, 119, 180),(255,255,0)]
 
 for i in range(len(tableau100)):
     r, g, b = tableau100[i]
@@ -110,7 +110,7 @@ for x,n in enumerate(names):
     ev=1240/wavelengths
 
     colors=[1,7]
-    ax1.scatter(wavelengths,linearcomb[:,x],s=10,alpha='0.8', c=tableau100[colors[x]] )
+    ax1.scatter(wavelengths,linearcomb[:,x],s=10,alpha='0.8', c=np.atleast_2d(tableau100[colors[x]]) )
 
 difference=linearcomb[:,0] + linearcomb[:,1]
 
@@ -126,12 +126,12 @@ y_spl = UnivariateSpline(x,y,s=0,k=4)
 y_spl_d =  y_spl.derivative(n=1)
 droots=y_spl_d.roots()
 droots=np.round(droots)
-ax1.scatter(wavelengths,y_spl_d(wavelengths),s=1,c=tableau100[22],label = 'dy/dx')
+ax1.scatter(wavelengths,y_spl_d(wavelengths),s=1,c=np.atleast_2d(tableau100[22]),label = 'dy/dx')
 
 y_spl_d2 =  y_spl.derivative(n=2)
 d2rootval=y_spl_d2(droots)
 
-ax1.scatter(wavelengths,y_spl_d2(wavelengths),s=1,label = 'd2y/dx2',c=tableau100[40])
+ax1.scatter(wavelengths,y_spl_d2(wavelengths),s=1,label = 'd2y/dx2',c=np.atleast_2d(tableau100[40]))
 
 #Determine whether passes or fails
 transbool=False
@@ -168,11 +168,11 @@ cis: {1} at {3}""".format(trans,cis, transpeakvalue,cispeakvalue))
 for i in transpeakvalue:
     i=int(i)
     index=np.where(wavelengths == i)
-    ax1.scatter(i,difference[index],s=100, c='y', label = 'HIT-trans',marker='*')
+    ax1.scatter(i,difference[index],s=300, c=np.atleast_2d(tableau100[-1]), label = 'HIT-trans',marker='*',edgecolor='black', linewidth=1)
 for i in cispeakvalue:
     i=int(i)
     index=np.where(wavelengths == i)
-    ax1.scatter(i,difference[index],s=100, c='y', label = 'HIT-cis', marker='*')
+    ax1.scatter(i,difference[index],s=300, c=np.atleast_2d(tableau100[-1]), label = 'HIT-cis', marker='*',edgecolor='black', linewidth=1)
 
 #make plot png
 plt.legend()
